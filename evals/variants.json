@@ -1,0 +1,8 @@
+{
+  "_comment": "各 variant は hermes chat に渡す追加引数と環境変数。profile を分けると SOUL.md や plugins も切り替えられる (hermes profile create <name>)。",
+  "baseline": {"args": ["--reasoning", "low"], "env": {"HERMES_REASONING_BOOST": "off"}},
+  "high-reasoning": {"args": ["--reasoning", "high"], "env": {"HERMES_REASONING_BOOST": "off"}},
+  "boost": {"args": ["--reasoning", "high"], "env": {"HERMES_REASONING_BOOST": "on"}},
+  "boost+skills": {"args": ["--reasoning", "high", "-s", "deliberate-planning,verify-before-answer"], "env": {"HERMES_REASONING_BOOST": "on"}},
+  "moa": {"args": ["--provider", "moa", "-m", "deep"], "env": {"HERMES_REASONING_BOOST": "on"}}
+}

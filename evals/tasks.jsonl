@@ -1,0 +1,13 @@
+{"id": "bat-ball", "category": "reasoning", "prompt": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost, in dollars?", "answer": "0.05", "type": "number"}
+{"id": "snail", "category": "reasoning", "prompt": "A snail is at the bottom of a 10 m well. Each day it climbs 3 m and each night it slides back 2 m. On which day does it first reach the top?", "answer": "8", "type": "number"}
+{"id": "widgets", "category": "reasoning", "prompt": "If 5 machines take 5 minutes to make 5 widgets, how many minutes would 100 machines take to make 100 widgets?", "answer": "5", "type": "number"}
+{"id": "lily-pad", "category": "reasoning", "prompt": "A patch of lily pads doubles in size every day. It takes 48 days to cover the whole lake. How many days does it take to cover half the lake?", "answer": "47", "type": "number"}
+{"id": "sisters", "category": "reasoning", "prompt": "Sally (a girl) has 3 brothers. Each brother has 2 sisters. How many sisters does Sally have?", "answer": "1", "type": "number"}
+{"id": "digit-sevens", "category": "reasoning", "prompt": "How many times is the digit 7 written when you write every integer from 1 to 1000 inclusive?", "answer": "300", "type": "number"}
+{"id": "multiples-3-5", "category": "reasoning", "prompt": "What is the sum of all integers from 1 to 1000 inclusive that are multiples of 3 or 5?", "answer": "234168", "type": "number"}
+{"id": "prime-sum", "category": "tool", "prompt": "What is the sum of all prime numbers below 10000?", "answer": "5736396", "type": "number"}
+{"id": "sha256", "category": "tool", "prompt": "What are the first 12 hex characters of the SHA-256 digest of the ASCII string hermes-agent (no newline)?", "answer": "21e63e26eab4", "type": "exact"}
+{"id": "factorial-mod", "category": "tool", "prompt": "Compute 25! mod 1000003.", "answer": "630614", "type": "number"}
+{"id": "derangements", "category": "tool", "prompt": "How many permutations of 8 distinct items leave no item in its original position?", "answer": "14833", "type": "number"}
+{"id": "digit-sum-2-1000", "category": "tool", "prompt": "What is the sum of the decimal digits of 2^1000?", "answer": "1366", "type": "number"}
+{"id": "date-diff", "category": "tool", "prompt": "How many days are there from 2026-10-09 to 2027-01-01 (count 2027-01-01 minus 2026-10-09)?", "answer": "84", "type": "number"}

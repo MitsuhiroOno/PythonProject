@@ -1,0 +1,67 @@
+# ~/.hermes/config.yaml に追記(マージ)する設定例。
+# 既存のキーがある場合は上書きではなく値だけ差し替えてください。
+# キー名は hermes-agent の cli-config.yaml.example に準拠しています。
+
+agent:
+  # 推論量。none / minimal / low / medium / high / xhigh
+  reasoning_effort: "high"
+  # 特定モデルだけ上げ下げしたい場合(キーはモデル名、値は推論量)
+  # reasoning_overrides:
+  #   "anthropic/claude-opus-4.8": "xhigh"
+  # 終了前に「もう1ターン検証して」と促す回数の上限
+  max_verify_nudges: 3
+
+skills:
+  # このリポジトリの skills/ を読み込む(パスは clone した場所に合わせる)
+  external_dirs:
+    - ~/PythonProject/skills
+  # 複雑なタスク後にスキル化を促す間隔(ツール呼び出し回数)
+  creation_nudge_interval: 15
+
+plugins:
+  enabled:
+    - reasoning_boost
+
+# 難しい問題向け: 複数モデルの意見を集約する Mixture of Agents。
+# 使うときは `/model deep --provider moa`、または評価で variant に指定。
+moa:
+  default_preset: deep
+  presets:
+    deep:
+      reference_models:
+        - provider: openrouter
+          model: deepseek/deepseek-v4-pro
+        - provider: openrouter
+          model: google/gemini-3-pro-preview
+      aggregator:
+        provider: openrouter
+        model: anthropic/claude-opus-4.8
+      enabled: true
+
+# サブエージェント: 親は強いモデル、子は安いモデルでコストを抑える
+delegation:
+  max_iterations: 100
+  # model: "google/gemini-3-flash-preview"
+  # provider: "openrouter"
+
+# 同じ失敗の繰り返しを早めに止める(非対話時は既定で hard stop)
+tool_loop_guardrails:
+  warnings_enabled: true
+  warn_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+
+# ツール連携: MCP サーバーの追加例
+mcp_servers:
+  time:
+    command: uvx
+    args: ["mcp-server-time"]
+  fetch:
+    command: uvx
+    args: ["mcp-server-fetch"]
+  # github:
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-github"]
+  #   env:
+  #     GITHUB_PERSONAL_ACCESS_TOKEN: "${GITHUB_TOKEN}"
