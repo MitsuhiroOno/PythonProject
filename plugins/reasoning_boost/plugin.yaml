@@ -1,0 +1,7 @@
+name: reasoning_boost
+version: 0.1.0
+description: Adds a `think` scratchpad tool and injects a plan-then-verify reminder on complex turns.
+provides_tools:
+  - think
+provides_hooks:
+  - pre_llm_call
